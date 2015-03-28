@@ -1,3 +1,7 @@
+For examples what monsters look like visit Tibia.Wikia.Com
+To find the look types, https://otland.net/threads/monster-looktypes.31774/
+For now, don't worry about the loot IDs, flag IDs
+
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Demon" nameDescription="a demon" race="fire" experience="6000" speed="280" manacost="0">
 	<health now="8200" max="8200"/>
