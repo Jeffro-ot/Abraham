@@ -1,11 +1,5 @@
 Nutopia Remake=Newbtopia 10.77 TFS 1.2+Updates
 TFS 1.2 Change Log
-Crtical Hits(v0.1:6/1/16; New Combat Meta; Avg% Attack Varies On Moving/Skill; Speed Determined By Skill Value)
-Soon- Dual Wielding Meta; Currently Unavailable In-Game; Required Vocation
-Soon- Sorcery Meta Added; Currently Unavailable In-Game; Required Vocation
-
-
-
 
 Version 0.1
 
@@ -22,9 +16,10 @@ Boss System(v1.0:5/29/16; Hardcoded, Non-Array; On monster death, % = Boss Spawn
 Unique Weapons&Armors(v1.1:5/31/16; Array; % for broken, % for Rank 1-9:Rank 9 = Best/Very Rare/.7%, Rank 10+Slotted = Quest)
 Added Spawns- Bugs + Minotaurs
 Outfit Bonus(v0.1:5/20/16; Non-Addon Outfits, Health&Mana Bonuses, Addon = +5%)
+Crtical Hit System(v0.1:6/1/16; New Combat Meta; Crit. Also Depends On Soul Value; Avg% Attack Varies On Skill; Speed of Attack Determined By Skill Value)
 
 Current Work
-Boss Wave System v2.0[Working Array; 2 Wave Bosses]
+Boss Wave System v2.0[Working Array; 2 Wave Bosses w/ %Chance]
 Boss Reward System v1.0[Non-Array; Raid Tokens]
-Raid Arena
-New Soul System
+Raid Arena v1.0[Array-Raid Token+Soul Cost; 4 Player Raid System; 20 Boss Raid]
+New Soul System v1.0[Boss Kill = Soul Points]
