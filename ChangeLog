@@ -9,13 +9,22 @@ Soon- Sorcery Meta Added; Currently Unavailable In-Game; Required Vocation
 
 Version 0.1
 
-Current Vocations
+Vocations
 Archer(v0.2:5/11/16; New Meta + Combat Damage)
 Warrior(Not Available)
 Pyromancer(Not Available)
 
+Changes
 Return to temple on login + Full Health/Mana
-Added Spawns- Bugs + Minotaurs
-Outfit Bonus(v0.1:5/20/16; Non-Addon Outfits, Health&Mana Bonuses, Addon = +5%)
+
+Added
 Boss System(v1.0:5/29/16; Hardcoded, Non-Array; On monster death, % = Boss Spawn on corpse)
 Unique Weapons&Armors(v1.1:5/31/16; Array; % for broken, % for Rank 1-9:Rank 9 = Best/Very Rare/.7%, Rank 10+Slotted = Quest)
+Added Spawns- Bugs + Minotaurs
+Outfit Bonus(v0.1:5/20/16; Non-Addon Outfits, Health&Mana Bonuses, Addon = +5%)
+
+Current Work
+Boss Wave System v2.0[Working Array; 2 Wave Bosses]
+Boss Reward System v1.0[Non-Array; Raid Tokens]
+Raid Arena
+New Soul System
