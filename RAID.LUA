@@ -3,8 +3,8 @@
 --v0.1--------
 
 local monsters = {
-[1000] = {globalstorage = 1000, soul = 100, tcost = 15, token = silver, boss = "Demon"},
-[1001] = {globalstorage = 1001, soul = 100, tcost = 30, token = gold, boss = "Orshabaal"},
+[1000] = {globalstorage = 1000, soul = 100, tcost = 15, token = silver, boss = "Demon", msg = "Mwahaha!"},
+[1001] = {globalstorage = 1001, soul = 100, tcost = 30, token = gold, boss = "Orshabaal", msg = "Death shall come slow!"},
 }
 
 local rtok = {
@@ -13,26 +13,40 @@ gold = 1298,
 }
 
 function onUse(cid, item, player, creature)
-     local l = Item.getActionId
+     local l = Item.getActionId()
      local k = Game.getStorageValue(monsters[l].globalstorage)
      local j = monsters[l].tcost
      local h = monsters[l].soul
      local g = monsters[l].boss
-     if 1 <= k then
+     
+     --check if raid in progress
+     if 0 < k then
+          Player.sendCancleMessage("This raid is already in progress.")
           return true
      end
      
-     if h <= Player.getSoul() and j <= Player.getItemCount(rtok.silver) or j <= Player.getItemCount(rtok.gold) then
+     --check what tokens this raid uses
+     if monsters[l].token = silver then
+          do f = rtok.silver
+          return false
+     elseif monsters[l].token = gold then
+          do f = rtok.gold
+          return false
+     end
+     
+     --check if player has 
+     if Player.getSoul() < h then
+          Player.sendCancleMessage("Not enough soul points.")
+          return true
+     else Player.getItemCount(f) < j  then
+          Player.sendCancleMessage("Not enough raid tokens.")
           return true
      end
      
      Player.removeSoul(monsters[l].soul)
-     if monsters[l].token = silver then
-          Player.removeItem(rtok.silver, monsters[l].tcost)
-     elseif monsters[l].token = gold then
-          Player.removeItem(rtok.gold, monsters[l].tcost)
+     Player.removeItem(f, monsters[l].tcost)
      Game.createMonster(g, Player.getPosition, false, true)
-     end
+     Creature.makeSay(ORANGE, monsters[l].msg, Creature.getPosition)
 end
      
      
