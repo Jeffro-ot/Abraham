@@ -43,6 +43,7 @@ function onUse(cid, item, player, creature)
           return true
      end
      
+     Game.setStorageValue(monsters[l].globalstorage, 1) --Be Sure To Setup Remove Global Storage on Boss Death or this script wont work a second time
      Player.removeSoul(monsters[l].soul)
      Player.removeItem(f, monsters[l].tcost)
      Game.createMonster(g, Player.getPosition, false, true)
