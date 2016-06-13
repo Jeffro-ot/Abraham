@@ -50,7 +50,7 @@ function onUse(cid, item, player, creature)
      Player.removeSoul(monsters[l].soul)
      Player.removeItem(f, monsters[l].tcost)
      Game.createMonster(g, Player.getPosition, false, true)
-     Creature.makeSay(ORANGE, monsters[l].msg, Creature.getPosition)
+     Creature.say(monsters[l].msg, TALKTYPE_MONSTER_YELL, Creature.getPosition())
 end
      
      
