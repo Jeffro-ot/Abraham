@@ -6,13 +6,13 @@
 
 
 local monsters = {
-[1000] = {globalstorage = 1000, soul = 100, tcost = 15, token = silver, boss = "Demon", msg = "Mwahaha!"},
-[1001] = {globalstorage = 1001, soul = 100, tcost = 30, token = gold, boss = "Orshabaal", msg = "Death shall come slow!"},
+[1000] = {globalstorage = 1000, soul = 100, tcost = 15, token = 1, boss = "Demon", msg = "Mwahaha!"},
+[1001] = {globalstorage = 1001, soul = 100, tcost = 30, token = 2, boss = "Orshabaal", msg = "Death shall come slow!"},
 }
 
 local rtok = {
-silver = 1938,
-gold = 1298,
+[1] = 1938, --itemid
+[2] = 1298,
 }
 
 function onUse(cid, item, player, creature)
@@ -29,26 +29,21 @@ function onUse(cid, item, player, creature)
      end
      
      --check what tokens this raid uses
-     if monsters[l].token = silver then
-          do f = rtok.silver
-          return false
-     elseif monsters[l].token = gold then
-          do f = rtok.gold
-          return false
-     end
+     local f = monsters[l].token
+     local d = rtok[f]
      
      --check if player has 
      if Player.getSoul() < h then
           Player.sendCancleMessage("Not enough soul points.")
           return true
-     else Player.getItemCount(f) < j  then
+     else Player.getItemCount(d) < j  then
           Player.sendCancleMessage("Not enough raid tokens.")
           return true
      end
      
      Game.setStorageValue(monsters[l].globalstorage, 1) --Be Sure To Setup Remove Global Storage on Boss Death or this script wont work a second time
      Player.removeSoul(monsters[l].soul)
-     Player.removeItem(f, monsters[l].tcost)
+     Player.removeItem(d, monsters[l].tcost)
      Game.createMonster(g, Player.getPosition, false, true)
      Creature.say(monsters[l].msg, TALKTYPE_MONSTER_YELL, Creature.getPosition())
 end
