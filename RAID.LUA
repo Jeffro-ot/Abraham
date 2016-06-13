@@ -13,6 +13,7 @@ local monsters = {
 local rtok = {
 [1] = 1938, --itemid
 [2] = 1298,
+--example [3] = 1948, then change token = 1or2 to 3
 }
 
 function onUse(cid, item, player, creature)
