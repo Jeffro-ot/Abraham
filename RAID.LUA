@@ -1,7 +1,9 @@
 --Not Tested--
 --Jeffro(C)---
 --v0.2--------
---added array for tokens, will add option for more currency/tokens at another time
+--Intended for TFS 1.2
+--Latest: Added array for tokens + custom monster msg on spawn, will add option for more currency/tokens at another time
+
 
 local monsters = {
 [1000] = {globalstorage = 1000, soul = 100, tcost = 15, token = silver, boss = "Demon", msg = "Mwahaha!"},
