@@ -1,52 +1,25 @@
---Not Tested--
---Jeffro(C)---
---v0.2--------
---Intended for TFS 1.2
---Latest: Added array for tokens + custom monster msg on spawn, will add option for more currency/tokens at another time
+--ByJeffro and Tetra20
+--TFS 1.2
 
-
-local monsters = {
-[1000] = {globalstorage = 1000, soul = 100, tcost = 15, token = 1, boss = "Demon", msg = "Mwahaha!"},
-[1001] = {globalstorage = 1001, soul = 100, tcost = 30, token = 2, boss = "Orshabaal", msg = "Death shall come slow!"},
+local config = {
+["bug"] = {chance = 50000, boss = "Poisonous Bug", msg = "Kreekkk!"}, --50k = 50%
+["poisonous bug"] = {chance = 50000, boss = "Black Widow", msg = "Ribbbiitttt!"}, --25k = 25%
 }
 
-local rtok = {
-[1] = 1938, --itemid
-[2] = 1298,
---example [3] = 1948, then change token = 1or2 to 3
-}
-
-function onUse(cid, item, player, creature)
-     local l = Item.getActionId()
-     local k = Game.getStorageValue(monsters[l].globalstorage)
-     local j = monsters[l].tcost
-     local h = monsters[l].soul
-     local g = monsters[l].boss
-     
-     --check if raid in progress
-     if 0 < k then
-          Player.sendCancleMessage("This raid is already in progress.")
-          return true
-     end
-     
-     --check what tokens this raid uses
-     local f = monsters[l].token
-     local d = rtok[f]
-     
-     --check if player has 
-     if Player.getSoul() < h then
-          Player.sendCancleMessage("Not enough soul points.")
-          return true
-     else Player.getItemCount(d) < j  then
-          Player.sendCancleMessage("Not enough raid tokens.")
-          return true
-     end
-     
-     Game.setStorageValue(monsters[l].globalstorage, 1) --Be Sure To Setup Remove Global Storage on Boss Death or this script wont work a second time
-     Player.removeSoul(monsters[l].soul)
-     Player.removeItem(d, monsters[l].tcost)
-     Game.createMonster(g, Player.getPosition, false, true)
-     Creature.say(monsters[l].msg, TALKTYPE_MONSTER_YELL, Creature.getPosition())
+function onDeath(creature, target, player, corpse, mostDamage)
+local random_chance = math.random(100000)
+local targetPosition = target:getPosition()
+if creature:isMonster() then
+local Monster = config[creature:getName():lower()]
+if Monster then
+if Monster.chance >= random_chance then
+target:getPosition():sendMagicEffect(CONST_ME_POFF)
+Game.createMonster(Monster.boss:lower(), targetPosition)
+player:sendTextMessage(MESSAGE_STATUS_CONSOLE_RED, Monster.msg)
+end
+end
+end
+return true
 end
      
      
