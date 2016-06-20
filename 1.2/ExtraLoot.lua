@@ -1,3 +1,5 @@
+--This is not my coding
+
 local extra_loot = {
 	{hasName = "poisonous bug", items = {
 		{id = 2152, count = 2, chance = 3000}
