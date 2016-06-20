@@ -1,4 +1,5 @@
 -- Effects in this table are used for looking at the monster --
+--Jeffro: will convert to 1.2 somedayf
 
 local t = {
 ['rotworm'] = {Summon = 'Trainer', Time = 5, ID = 2160, Min = 1, Max = 100, Color = TEXTCOLOR_LIGHTBLUE, Effect = CONST_ME_MAGIC_BLUE},
