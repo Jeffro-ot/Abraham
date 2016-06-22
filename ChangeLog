@@ -1,25 +1,25 @@
-Nutopia Remake=Newbtopia 10.77 TFS 1.2+Updates by Jeffro
-TFS 1.2 Change Log
-
-Version 0.11
-
+_________________________________________________________________________________________________
+Nutopia Remake=Newbtopia 10.77 TFS 1.2+Updates by Jeffro_________________________________________
+TFS 1.2 Change Log_______________________________________________________________________________
+Version 0.11_____________________________________________________________________________________
+_________________________________________________________________________________________________
 Vocations
-Archer(v0.2:5/11/16; New Meta + Combat Damage)
-Warrior(Not Available)
-Pyromancer(Not Available)
-
-Changes
+_________________________________________________________________________________________________
+Paladin
+Knight
+_________________________________________________________________________________________________
+Changes/Added
+_________________________________________________________________________________________________
 Return to temple on login + Full Health/Mana
-
-Added
-Boss System(v1.0:5/29/16; Hardcoded, Non-Array; On monster death, % = Boss Spawn on corpse)
-Unique Weapons&Armors(v1.1:5/31/16; Array; % for broken, % for Rank 1-9:Rank 9 = Best/Very Rare/.7%, Rank 10+Slotted = Quest)
+Auto Promotion at level 20, Demoted at level 19
+Boss Wave System v2.0 - Also thanks goes to Tetra20 for cleaning up the code
+Unique Weapons&Armors
 Added Spawns- Bugs + Minotaurs
-Outfit Bonus(v0.1:5/20/16; Non-Addon Outfits, Health&Mana Bonuses, Addon = +5%)
-Crtical Hit System(v0.1:6/1/16; New Combat Meta; Crit. Also Depends On Soul Value; Avg% Attack Varies On Skill; Speed of Attack Determined By Skill Value)
-
+Outfit Bonus
+_________________________________________________________________________________________________
 Current Work
-Boss Wave System v2.0[Working Array; 2 Wave Bosses w/ %Chance]
+_________________________________________________________________________________________________
 Boss Reward System v1.0[Non-Array; Raid Tokens]
 Raid Arena v1.0[Array-Raid Token+Soul Cost; 4 Player Raid System; 20 Boss Raid]
 New Soul System v1.0[Boss Kill = Soul Points]
+Crtical Hit System
