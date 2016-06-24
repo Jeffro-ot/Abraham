@@ -1,9 +1,14 @@
-local reward = {storage = 1000,
-    items = {(1921, 1), (1922, 1), (1923, 1)}
+local config = {storage = 1000, canclemsg = "You've already used this item!",
+    reward = {1992, 1993}
 }
 
-function onUse(player)
-    if player.isPlayer and player.getStorageValue(reward.storage) == 0 then
-        for c, v 
-    
-        
+function onUse(player, item)
+    if player:isPlayer and player:getStorageValue(config.storage) == 0 then
+        for gift = config.reward, #gift do
+            player:addItem(gift, 1)
+            player:setStorageValue(config.storage, 1)
+        end
+    else
+        player:sendTextMessage(MESSAGE_STATUS_WARNING, config.canclemsg, player:getPosition())
+    end
+end
