@@ -1,37 +1,25 @@
 --You Can't Kill The Best for TFS 1.2
 --By. Jeffro
 
-local config = {
-{           --global            --global            -player
+local config = {--global            --global            --player
 storage = {storagelevel = 9000, storagename = 9001, storagekill = 9002}
 }
-}
 
-local reward = {
-    doreward = 1, items = {(1941, 1), (1841, 1), (1982, 1)}--doreward == 0 will be no reward, 1 is reward
-}
+local highest = config.storage
+local playerlevel = player:getLevel()
+local playerid = player:getGuid()
 
-function highestLevel(player)
-    for i = config[1].storage, do
-    if getPlayerLevel() >= getGlobalStorageValue(i.storagelevel) then
-        if reward.doreward == 1 and getGlobalStorageValye(i.storagekill) == 1 then
-            for y = math.random(#reward.items), do y
-            player.addItem(y)
-        else
-            setGlobalStorage(i.storagelevel, getPlayerLevel())
-            setGlobalStorage(i.storagename, getPlayerId())
-    end
+function onLogin(login, player)
+    if not player.isPlayer then return true end
+    if player:getLevel() <= game:getStorageValue(highest.storagelevel) then return true end --if player isnt highest level then cancle
+    game:setStorageValue(highest.storagename, playerid) --stores players id and level if highest level
+    game:setStorageValue(highest.storagelevel, playerlevel)
+    player:sendTextMessage(MESSAGE_STATUS_WARNING, "You are now the most wanted player on the server!", player:getPosition())
 end
 
-function onLogin(player, login)
-    if player.isPlayer then
-        player:registerEvent("killthebest")
-        addEvent(highestLevel)
-    end
-
 function onKill(player, target)
-    for u = config[1].storage, do
-    if target.isPlayer and target.getId() == getGlobalStorageValue(u.storagename) then
-        setPlayerStorageValue(u.storagekill, 1)
-    end
+    if not target.isPlayer then return true end
+    if not target:getGuid() == game:getStorageValue(highest.storagename) then return true end
+    game:setStorageValue(highest.storagekill, player:getGuid())
+    player:sendTextMessage(MESSAGE_STATUS_WARNING, "You have killed the most wanted player on the server!", target:getPosition())
 end
