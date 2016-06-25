@@ -3,9 +3,9 @@ local config = {storage = 1000, canclemsg = "You've already used this item!",
 }
 
 function onUse(player, item)
-    if player:isPlayer and player:getStorageValue(config.storage) == 0 then
-        for gift = config.reward, #gift do
-            player:addItem(gift, 1)
+    if player:isPlayer and player:getStorageValue(config.storage) <= 0  then
+        for gift = 1, #config.reward do
+            player:addItem(config.reward[gift], 1)
             player:setStorageValue(config.storage, 1)
         end
     else
