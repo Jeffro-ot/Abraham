@@ -5,9 +5,8 @@ function onUse(player, item)
     if not player.isPlayer then return true end
     if lvlsys == 1 and player:getLevel() < config.level then return true end
     
-    local plhealth = player:getMaxHealth()
-    local addhealth = plhealth / 0.007
-    local maxhealth = plhealth + addhealth
+    local addhealth = player:getMaxHealth() * 0.007
+    local maxhealth = player:getMaxHealth() + addhealth
     
     player:setMaxHealth(maxhealth)
 end
