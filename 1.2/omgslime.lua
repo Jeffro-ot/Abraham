@@ -8,7 +8,7 @@ function onHit(player, target, creature)
         return true
     else
         local multiply = math.random(100000)
-        if multiply >= monster.chance then
+        if multiply < monster.chance then
             return true
         else
             game:createCreature(monster.name:lower(), target:getPosition())
