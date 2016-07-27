@@ -1,3 +1,8 @@
+local config = {
+    level = 20,
+    config = ####
+}
+
 local rewards = {
     --- Sorcerer
     [1] = {
@@ -76,6 +81,9 @@ function onAdvance(player, skill, oldlevel, newlevel)
     local rewardstr = "Items received: "
     local reward_t = {}
     local voc = player:getVocation():getBase():getId()
+    local vocation = player:getVocation()
+    local promotion = vocation:getPromotion()
+    
     if rewards[voc][skill] then
         for j = 1, #rewards[voc][skill] do
             local r = rewards[voc][skill][j]
@@ -99,6 +107,13 @@ function onAdvance(player, skill, oldlevel, newlevel)
   
         if #reward_t > 0 then
             player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, rewardstr .. table.concat(reward_t, ", "))
+        end
+    elseif skill == SKILL_LEVEL then
+        if player:getStorageValue(config.storage) == 0 and player:getLevel() >= config.level
+            player:setVocation(promotion)
+            player:setStorageValue(config.storage, 1)
+            player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "You have gained an outstanding amount of trust with Soraya, young adventurer.\nShe has awarded you with a promotion to ".. player:getVocation():getName() .."!")
+            player:save()
         end
     end
     return true
