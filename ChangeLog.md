@@ -61,12 +61,18 @@ Changed Warrior's Shrine to Warrior's Tome
 Updated Minotaurs to Oramond sprites
 Added PZ gems at each hunting area
 
+Version 2.0--------------------------------------------------------------------
+Updated TFS[9/6/16]
+Upgrade to 10.94 Added/Still 10.77
+Fixed map loading issues with 20s+ loading times, NOW 1-4s, More to ADD = v2.1
+*Dungeon 1- Sunshine Castle
 
 ----
 ------DEBUGGING
 ----
 
 TESTING/IN-PROGRESS(ADDING)/BUGS-------[ADDED/FIXED/RUNS/NOTTESTED]---------***=IMPORTANT------------------------------
+Updating to 10.94
 Orc Monsters Implemented
 Training
 Torch as Shield + Def: 7
