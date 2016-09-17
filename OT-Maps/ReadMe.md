@@ -1,6 +1,6 @@
 Abraham OT Maps are 100% free! And should be credited to Jeffro@OtLand.
 
-If you are looking for custom pieces, you can ask me on OtLand, but as of now, my time is of now is very limited.
+If you are looking for custom pieces, you can ask me on OtLand, but as of now my time is very limited and pieces would take some time, not rushed.
 
 I do accept donations! I don't request or require them. You can get more information from me by PM at Otland.
 
